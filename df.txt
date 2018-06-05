@@ -1,0 +1,14 @@
+tr {
+
+    height: 70px;
+    width: 800px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+td, th {
+
+    padding: 10px;
+
+}

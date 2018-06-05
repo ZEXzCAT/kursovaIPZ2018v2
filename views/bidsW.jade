@@ -1,0 +1,49 @@
+html
+ head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+
+  link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+  link(rel='stylesheet', href='/stylesheets/fonts-v3.css')
+  link(rel='stylesheet', href='/stylesheets/base-v4_2.css')
+  link(rel='stylesheet', href='/stylesheets/properties-2ccb5153-0dea-3ed1-d660-9ddc66ac02f8.css')
+ body
+ #_1
+  #_2.nm-label
+   h1#_3
+    | AutoService
+    br
+  i#_4
+   | 
+  nav#_5.navbar.navbar-default(role='navigation')
+   .container-fluid
+    ul.nav.navbar-nav
+     li
+      a#_6.navbar-brand(href='#') Brand
+     li
+      a#_7(href='#') Home
+     li
+      a#_8(href='#') Services
+     li.active
+      a#_8_1(href='#') Zayavki
+  label#_9_1
+    | #{user}
+  button#_10_1.btn.btn-default
+    | Log out
+  button#_131.btn.btn-default
+    | Podat zayavky
+  table#_132
+    thead
+     th Номер заявки
+     th Назва послуги
+     th Машина
+     th Час
+     br
+    tbody
+  input#_223.form-control(type='text', placeholder='id заявки')
+  button#_226.btn.btn-default
+  | Прийняти
+  input#_225.form-control(type='text', placeholder='новий статус')
+  script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+  script(src='/javascripts/forhome.js')
+  script(src='/javascripts/forbidsW.js')

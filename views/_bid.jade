@@ -1,0 +1,63 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to our test
+
+    // Wrapper
+    #wrapper
+
+        // USER INFO
+        #userInfo
+            h2 User Info
+            p
+                strong Name:
+                |  <span id='userInfoName'></span>
+                br
+                strong Number:
+                |  <span id='userInfoNumber'></span>
+                br
+                strong Password:
+                |  <span id='userInfoPassword'></span>
+                br
+                strong Age:
+                |  <span id='userInfoAge'></span>
+                br
+                strong Gender:
+                |  <span id='userInfoGender'></span>
+                br
+                strong Location:
+                |  <span id='userInfoLocation'></span>
+        // /USER INFO
+
+        // BID LIST
+        h2 User Bid
+        #bidList
+            table
+                thead
+                    th UserName
+                    th Id
+                    th Service
+                    th Car
+                    th Time
+                    th Delete?
+                tbody
+        // /BID LIST
+
+        // ADD BID
+        h2 Add Bid
+        #addBid
+            fieldset
+                input#inputUserName(type='text', placeholder='Username')
+                input#inputUserId(type='text', placeholder='Id')
+                br
+                input#inputUserService(type='text', placeholder='Service')
+                input#inputUserCar(type='text', placeholder='Car')
+                br
+                input#inputUserTime(type='text', placeholder='Time')
+                br
+                button#btnAddBid Add Bid
+                button#btnComp comp
+        // /ADD BID
+
+    // /WRAPPER

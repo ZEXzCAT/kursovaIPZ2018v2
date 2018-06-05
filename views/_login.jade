@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to our test
+
+    // Wrapper
+    #wrapper
+
+        // LOG IN
+        h2 Log in
+        #logIn
+            fieldset
+                input#inputUserName(type='text', placeholder='Username')
+                br
+                input#inputUserPassword(type='password', placeholder='Password')
+                br
+                button#btnLogIn Log In
+        // /LOG IN
+
+    // /WRAPPER
