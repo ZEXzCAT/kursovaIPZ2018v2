@@ -4,10 +4,10 @@ $(document).ready(function() {
   populateServiceTable();
 
   // Home
-  $('#_21').on('click', goHome);
+  $('#home').on('click', goHome);
 
   // Services
-  $('#_22').on('click', goServices);
+  $('#services').on('click', goServices);
 
   // Bids
   $('#_22_1').on('click', goBids);
@@ -43,7 +43,7 @@ function populateServiceTable() {
     });
 
     // Inject the whole content string into our existing HTML table
-    $('#_25 tbody').html(tableContent);
+    $('#servicetable tbody').html(tableContent);
   });
 };
 

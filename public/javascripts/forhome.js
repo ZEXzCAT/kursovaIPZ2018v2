@@ -1,9 +1,9 @@
 $(document).ready(function() {
   // Home
-  $('#_7').on('click', goHome);
+  $('#home').on('click', goHome);
 
   // Services
-  $('#_8').on('click', goServices);
+  $('#services').on('click', goServices);
 
   // Bids
   $('#_8_1').on('click', goBids);
