@@ -1,18 +1,18 @@
 $(document).ready(function() {
   // Home
-  $('#_98').on('click', goHome);
+  $('#home').on('click', goHome);
 
   // Services
-  $('#_99').on('click', goServices);
+  $('#services').on('click', goServices);
 
   // Bids
-  $('#_100').on('click', goBids);
+  $('#bids').on('click', goBids);
 
   // log out
-  $('#_102').on('click', goLogout);
+  $('#logout').on('click', goLogout);
 
   // log out
-  $('#_119').on('click', goSendForm);
+  $('#sendMessageButton').on('click', goSendForm);
 
 });
 
@@ -43,9 +43,10 @@ function goSendForm(event) {
 
   var newBid = {
     'username': get_cookie("username"),
-    'reason': $('#_116').val(),
-    'car': $('#_117').val(),
-    'time': $('#_118').val(),
+    'reason': $('#reason').val(),
+    'car': $('#car').val(),
+    'date': $('#date').val(),
+    'time': $('#time').val(),
     'status': 'очікується'
   }
   $.getJSON('/users/userlist', function(data) {
@@ -69,9 +70,10 @@ function goSendForm(event) {
     data: newBid,
     url: '/bid/addBid',
     dataType: 'JSON'
-  }).done();
-  alert("Заявку відправлено");
-  window.location = "/bids";
+  }).done(function(){
+    alert("Заявку відправлено");
+    window.location = "/bids";
+  });
 }
 
 function get_cookie(cookie_name) {

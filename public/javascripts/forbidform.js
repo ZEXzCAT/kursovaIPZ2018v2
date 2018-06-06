@@ -1,18 +1,18 @@
 $(document).ready(function() {
   // Home
-  $('#_98').on('click', goHome);
+  $('#home').on('click', goHome);
 
   // Services
-  $('#_99').on('click', goServices);
+  $('#services').on('click', goServices);
 
   // Bids
-  $('#_100').on('click', goBids);
+  $('#bids').on('click', goBids);
 
   // log out
-  $('#_102').on('click', goLogout);
+  $('#logout').on('click', goLogout);
 
   // log out
-  $('#_119').on('click', goSendForm);
+  $('#sendMessageButton').on('click', goSendForm);
 
 });
 
@@ -41,17 +41,17 @@ function goLogout(event) {
 function goSendForm(event) {
   event.preventDefault();
   var newBid = {
-    'username': $('#_116_1').val(),
-    'reason': $('#_116_1').val(),
-    'service': $('#_116').val(),
-    'car': $('#_117').val(),
-    'date': $('#_118').val(),
-    'time': $('#_118_1').val(),
+    'username': $('#username').val(),
+    'reason': $('#reason').val(),
+    'service': $('#service').val(),
+    'car': $('#car').val(),
+    'date': $('#date').val(),
+    'time': $('#time').val(),
     'status': 'прийнято'
   }
   $.getJSON('/users/userlist', function(data) {
     $.each(data, function() {
-      if (this.username == $('#_116_1').val()) {
+      if (this.username == $('#username').val()) {
         var newData = {
           'reqcount': parseInt(this.reqcount) + 1
         }
@@ -70,7 +70,8 @@ function goSendForm(event) {
     data: newBid,
     url: '/bid/addBid',
     dataType: 'JSON'
-  }).done();
-  alert("Заявку відправлено");
-  window.location = "/bids";
+  }).done(function(){
+    alert("Заявку відправлено");
+    window.location = "/bids";
+  });
 }

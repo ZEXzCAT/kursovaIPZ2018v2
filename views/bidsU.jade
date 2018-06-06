@@ -1,109 +1,113 @@
 doctype html
 html(lang='en')
- head
-  meta(charset='utf-8')
-  meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-  meta(name='description', content='')
-  meta(name='author', content='')
-  title This is how we do it! AutoService
-  // Bootstrap core CSS
-  link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
-  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-  link(href='css/my.css', rel='stylesheet')
-  // Custom fonts for this template
-  link(href='vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
-  link(href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic', rel='stylesheet', type='text/css')
-  link(href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
-  // Custom styles for this template
-  link(href='css/clean-blog.min.css', rel='stylesheet')
- body
-  // Navigation
-  nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
-   .container
-    a.navbar-brand(href='')
-    button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
-     | Меню
-     i.fa.fa-bars
-    #navbarResponsive.collapse.navbar-collapse
-     ul.navbar-nav.ml-auto
-      li.nav-item
-       a.nav-link#home(href='') Головна
-      li.nav-item
-       a.nav-link#services(href='') Послуги
-      li.nav-item
-       a.nav-link#bids(href='') Заявки
-      li.nav-item
-       a.nav-link.glyphicon.glyphicon-user(href='')  #{user}
-      li.nav-item
-       a.nav-link.glyphicon.glyphicon-off#logout(href='')  Вийти
-  // Page Header
-  header.masthead(style="background-image: url('img/4.jpg')")
-   .overlay
-   .container
-    .row
-     .col-lg-8.col-md-10.mx-auto
-      .page-heading
-       h1 Auto Service
-       span.subheading User panel.
-  // Main Content
-  .container
-   .row
-    .col-lg-8.col-md-10.mx-auto
-     p.center 	    Перегляд заявок! 
-  .py-5
-   .container
-    .row
-     .col-md-12.p-3
-      table.table.table-hover.table-striped.table-bordered#bidtable
-       thead.thead-inverse
-        tr
-         th(scope='col') ID
-         th(scope='col') Послуга
-         th(scope='col') Марка/Номер машини
-         th(scope='col') Статус
-         th(scope='col') Пояснення
-       tbody
-        tr
-         th(scope='row') 1
-         td example
-         td one
-         td one
-        tr
-         th(scope='row') 2
-         td example
-         td two
-        tr.bg-info
-         th(scope='row') 3
-         td example
-         td three
-         td one
-    br
-  hr
-  // Footer
-  footer
-   .container
-    .row
-     .col-lg-8.col-md-10.mx-auto
-      ul.list-inline.text-center
-       li.list-inline-item
-        a(href='#')
-         span.fa-stack.fa-lg
-          i.fa.fa-circle.fa-stack-2x
-          i.fa.fa-twitter.fa-stack-1x.fa-inverse
-       li.list-inline-item
-        a(href='#')
-         span.fa-stack.fa-lg
-          i.fa.fa-circle.fa-stack-2x
-          i.fa.fa-facebook.fa-stack-1x.fa-inverse
-       li.list-inline-item
-        a(href='#')
-         span.fa-stack.fa-lg
-          i.fa.fa-circle.fa-stack-2x
-          i.fa.fa-github.fa-stack-1x.fa-inverse
-      p.copyright.text-muted Alex&ZEXTeam © Our Website 2018
-  // Bootstrap core JavaScript
-  script(src='vendor/jquery/jquery.min.js')
-  script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
-  // Custom scripts for this template
-  script(src='js/clean-blog.min.js')
-  script(src='/javascripts/forbidsU.js')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title This is how we do it! AutoService
+    // Bootstrap core CSS
+    link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(href='css/my.css', rel='stylesheet')
+    // Custom fonts for this template
+    link(href='vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+    // Custom styles for this template
+    link(href='css/clean-blog.min.css', rel='stylesheet')
+  body
+    // Navigation
+    nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+      .container
+        a.navbar-brand(href='index.html')
+        button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+          | Меню
+          i.fa.fa-bars
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link#home(href='') Головна
+            li.nav-item
+              a.nav-link#services(href='') Послуги
+            li.nav-item
+              a.nav-link#bids(href='') Заявки
+            li.nav-item
+              a.nav-link.glyphicon.glyphicon-user(href='')  #{user}
+            li.nav-item
+              a.nav-link.glyphicon.glyphicon-off#logout(href='')  Вийти
+    // Page Header
+    header.masthead(style="background-image: url('img/4.jpg')")
+      .overlay
+      .container
+        .row
+          .col-lg-8.col-md-10.mx-auto
+            .page-heading
+              h1 Auto Service
+              span.subheading User panel.
+    // Main Content
+    .container
+      .row
+        .col-lg-8.col-md-10.mx-auto
+          p.center 	    Перегляд заявок! 
+        .form-group.center
+          button#bidform.btn.btn-primary(type='submit')
+            span.glyphicon.glyphicon-file
+            |  Подати заявку
+    .py-5
+      .container
+        .row
+          .col-md-12.p-3
+            table.table.table-hover.table-striped.table-bordered#bidtable
+              thead.thead-inverse
+                tr
+                  th(scope='col') ID
+                  th(scope='col') Послуга
+                  th(scope='col') Марка/Номер машини
+                  th(scope='col') Статус
+                  th(scope='col') Пояснення
+              tbody
+                tr
+                  th(scope='row') 1
+                  td example
+                  td one
+                  td one
+                tr
+                  th(scope='row') 2
+                  td example
+                  td two
+                tr.bg-info
+                  th(scope='row') 3
+                  td example
+                  td three
+                  td one
+        br
+    hr
+    // Footer
+    footer
+      .container
+        .row
+          .col-lg-8.col-md-10.mx-auto
+            ul.list-inline.text-center
+              li.list-inline-item
+                a(href='#')
+                  span.fa-stack.fa-lg
+                    i.fa.fa-circle.fa-stack-2x
+                    i.fa.fa-twitter.fa-stack-1x.fa-inverse
+              li.list-inline-item
+                a(href='#')
+                  span.fa-stack.fa-lg
+                    i.fa.fa-circle.fa-stack-2x
+                    i.fa.fa-facebook.fa-stack-1x.fa-inverse
+              li.list-inline-item
+                a(href='#')
+                  span.fa-stack.fa-lg
+                    i.fa.fa-circle.fa-stack-2x
+                    i.fa.fa-github.fa-stack-1x.fa-inverse
+            p.copyright.text-muted Alex&ZEXTeam © Our Website 2018
+    // Bootstrap core JavaScript
+    script(src='vendor/jquery/jquery.min.js')
+    script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+    // Custom scripts for this template
+    script(src='js/clean-blog.min.js')
+    script(src='/javascripts/forbidsU.js')

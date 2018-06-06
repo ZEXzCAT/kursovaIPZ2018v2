@@ -16,7 +16,7 @@ $(document).ready(function() {
   $('#logout').on('click', goLogout);
 
   // bidform
-  $('#_64').on('click', goBidform);
+  $('#bidform').on('click', goBidform);
 
 });
 
