@@ -1,4 +1,26 @@
 $(document).ready(function() {
+
+  $('.required').keyup(function() {
+
+    var empty = false;
+    $('.required').each(function() {
+      if ($(this).val() === '') {
+        empty = true;
+      }
+    });
+
+    if (empty) {
+      $('#sendMessageButton').prop('disabled', true);
+    } else {
+      $('#sendMessageButton').prop('disabled', false);
+    }
+  });
+
+  jQuery(function($) {
+    $('#date').mask('99.99.9999');
+    $('#time').mask('29:59');
+  });
+
   // Home
   $('#home').on('click', goHome);
 
@@ -40,16 +62,37 @@ function goLogout(event) {
 
 function goSendForm(event) {
   event.preventDefault();
-  var newBid = {
-    'username': $('#username').val(),
-    'reason': $('#reason').val(),
-    'service': $('#service').val(),
-    'car': $('#car').val(),
-    'date': $('#date').val(),
-    'time': $('#time').val(),
-    'status': 'прийнято'
-  }
   $.getJSON('/users/userlist', function(data) {
+    var un = false;
+    $.each(data, function() {
+      if (this.username == $('#username').val()) {
+        un = true;
+      }
+    });
+    if (un) {
+      var newBid = {
+        'username': $('#username').val(),
+        'reason': $('#reason').val(),
+        'service': $('#service').val(),
+        'car': $('#car').val(),
+        'date': $('#date').val(),
+        'time': $('#time').val(),
+        'status': 'прийнято'
+      }
+      // Use AJAX to post the object to our adduser service
+      $.ajax({
+        type: 'POST',
+        data: newBid,
+        url: '/bid/addBid',
+        dataType: 'JSON'
+      }).done(function() {
+        alert("Заявку відправлено");
+        window.location = "/bids";
+      });
+    } else {
+      alert("Такого користувача не існує!");
+      return;
+    }
     $.each(data, function() {
       if (this.username == $('#username').val()) {
         var newData = {
@@ -63,15 +106,5 @@ function goSendForm(event) {
         }).done();
       }
     });
-  });
-  // Use AJAX to post the object to our adduser service
-  $.ajax({
-    type: 'POST',
-    data: newBid,
-    url: '/bid/addBid',
-    dataType: 'JSON'
-  }).done(function(){
-    alert("Заявку відправлено");
-    window.location = "/bids";
   });
 }

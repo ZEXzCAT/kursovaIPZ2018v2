@@ -50,7 +50,7 @@ html(lang='en')
       .control-group
        .form-group.floating-label-form-group.controls
         label Логін
-        input#username.form-control(type='text', placeholder='Логін', required='', data-validation-required-message='Please enter your name.')
+        input#username.form-control.required(type='text', placeholder='Логін', required='', data-validation-required-message='Please enter your name.')
         p.help-block.text-danger
       .control-group
        .form-group.floating-label-form-group.controls
@@ -62,15 +62,16 @@ html(lang='en')
         label Електронна почта
         input#email.form-control(type='email', placeholder='Електронна почта', required='', data-validation-required-message='Please enter your email address.')
         p.help-block.text-danger
+        span#valid
       .control-group
        .form-group.floating-label-form-group.controls
         label Номер телефону
-        input#phone.form-control(type='tel', placeholder='Номер телефону', required='', data-validation-required-message='Please enter your phone number.')
+        input#phone.form-control.required(type='tel', placeholder='Номер телефону', required='', data-validation-required-message='Please enter your phone number.')
         p.help-block.text-danger
       .control-group
        .form-group.floating-label-form-group.controls
         label Пароль
-        input#pass.form-control(type='tel', placeholder='Пароль', required='', data-validation-required-message='Please enter your phone number.')
+        input#pass.form-control.required(type='tel', placeholder='Пароль', required='', data-validation-required-message='Please enter your phone number.')
         p.help-block.text-danger
       .control-group
        .form-group.floating-label-form-group.controls
@@ -80,7 +81,7 @@ html(lang='en')
       br
       #success
       .form-group
-       button#sendMessageButton.btn.btn-primary.btn-default(type='submit')
+       button#sendMessageButton.btn.btn-primary.btn-default(type='submit' disabled='true')
         span.glyphicon.glyphicon-send
         |  Відправити
   hr
@@ -108,10 +109,11 @@ html(lang='en')
       p.copyright.text-muted Alex&ZEXTeam© Our Website 2018
   // Bootstrap core JavaScript
   script(src='vendor/jquery/jquery.min.js')
+  script(src='js/maskinput.js')
   script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
   // Contact Form JavaScript
   script(src='js/jqBootstrapValidation.js')
-  script(src='js/contact_me.js')
+  //script(src='js/contact_me.js')
   // Custom scripts for this template
   script(src='js/clean-blog.min.js')
   script(src='/javascripts/forregistration.js')

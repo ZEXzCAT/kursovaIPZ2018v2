@@ -54,37 +54,37 @@ html(lang='en')
             .control-group
               .form-group.floating-label-form-group.controls
                 label Логін
-                input#username.form-control(type='text', placeholder='Логін', required='', data-validation-required-message='Please enter your name.')
+                input#username.form-control.required(type='text', placeholder='Логін', required='', data-validation-required-message='Please enter your name.')
                 p.help-block.text-danger
             .control-group
               .form-group.floating-label-form-group.controls
                 label Причина звернення
-                input#reason.form-control(type='text', placeholder='Причина звернення', required='', data-validation-required-message='Please enter your name.')
+                input#reason.form-control.required(type='text', placeholder='Причина звернення', required='', data-validation-required-message='Please enter your name.')
                 p.help-block.text-danger
             .control-group
               .form-group.floating-label-form-group.controls
                 label Послуга
-                input#service.form-control(type='text', placeholder='Послуга', required='', data-validation-required-message='Please enter your email address.')
+                input#service.form-control.required(type='text', placeholder='Послуга', required='', data-validation-required-message='Please enter your email address.')
                 p.help-block.text-danger
             .control-group
               .form-group.floating-label-form-group.controls
                 label Марка/Номер машини
-                input#car.form-control(type='text', placeholder='Марка/Номер машини', required='', data-validation-required-message='Please enter your car number.')
+                input#car.form-control.required(type='text', placeholder='Марка/Номер машини', required='', data-validation-required-message='Please enter your car number.')
                 p.help-block.text-danger
             .control-group
               .form-group.floating-label-form-group.controls
                 label Дата
-                input#date.form-control(type='datetime', placeholder='Дата', required='', data-validation-required-message='Please enter your phone number.')
+                input#date.form-control.required(type='datetime', placeholder='Дата', required='', data-validation-required-message='Please enter your phone number.')
                 p.help-block.text-danger
             .control-group
               .form-group.floating-label-form-group.controls
                 label Час
-                input#time.form-control(type='text', placeholder='Час', required='', data-validation-required-message='Please enter your phone number.')
+                input#time.form-control.required(type='text', placeholder='Час', required='', data-validation-required-message='Please enter your phone number.')
                 p.help-block.text-danger
             br
             #success
             .form-group
-              button#sendMessageButton.btn.btn-primary.btn-default(type='submit')
+              button#sendMessageButton.btn.btn-primary.btn-default(type='submit' disabled='true')
                 span.glyphicon.glyphicon-send
                 |  Відправити
     hr
@@ -112,6 +112,7 @@ html(lang='en')
             p.copyright.text-muted Alex&ZEXTeam© Our Website 2018
     // Bootstrap core JavaScript
     script(src='/vendor/jquery/jquery.min.js')
+    script(src='/js/maskinput.js')
     script(src='/vendor/bootstrap/js/bootstrap.bundle.min.js')
     // Contact Form JavaScript
     script(src='/js/jqBootstrapValidation.js')

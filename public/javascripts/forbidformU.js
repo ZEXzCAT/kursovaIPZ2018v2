@@ -1,4 +1,26 @@
 $(document).ready(function() {
+
+  $('.required').keyup(function() {
+
+    var empty = false;
+    $('.required').each(function() {
+      if ($(this).val() === '') {
+        empty = true;
+      }
+    });
+
+    if (empty) {
+      $('#sendMessageButton').prop('disabled', true);
+    } else {
+      $('#sendMessageButton').prop('disabled', false);
+    }
+  });
+
+  jQuery(function($) {
+    $('#date').mask('99.99.9999');
+    $('#time').mask('29:59');
+  });
+
   // Home
   $('#home').on('click', goHome);
 
@@ -70,7 +92,7 @@ function goSendForm(event) {
     data: newBid,
     url: '/bid/addBid',
     dataType: 'JSON'
-  }).done(function(){
+  }).done(function() {
     alert("Заявку відправлено");
     window.location = "/bids";
   });

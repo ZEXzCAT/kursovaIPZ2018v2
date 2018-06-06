@@ -63,8 +63,8 @@ router.post('/report', function(req, res) {
   var d = new Date();
   fs.writeFile("reports/report"+ d.getFullYear() + d.getMonth() + d.getDate() +".txt", req.body.data, function(error) {
     if (error) throw error; // если возникла ошибка
-    console.log("Звіт створено.");
   });
+  console.log("Звіт створено.");
 });
 
 router.post('/check', function(req, res) {

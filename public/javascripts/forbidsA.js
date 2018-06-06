@@ -92,39 +92,60 @@ function populateDoneBidsTable() {
 
 function Accept(event) {
   event.preventDefault();
-  var newData = {
-    'status': 'прийнято',
-    'service': $('#explain').val()
-  }
-  // Use AJAX to post the object to our adduser service
-  $.ajax({
-    type: 'PUT',
-    data: newData,
-    url: '/bid/updatebid/' + $('#bidid').val(),
-  }).done();
-  alert("Заявку прийнято");
-  populateBidsTable();
-  $('#bidid').val('');
-  $('#explain').val('');
+  $.getJSON('/bid/bidlist', function(data) {
+    var id = false;
+    $.each(data, function() {
+      if (this._id == $('#bidid').val()) {
+        id = true;
+      }
+    });
+    if (id) {
+      var newData = {
+        'status': 'прийнято',
+        'service': $('#explain').val()
+      }
+      // Use AJAX to post the object to our adduser service
+      $.ajax({
+        type: 'PUT',
+        data: newData,
+        url: '/bid/updatebid/' + $('#bidid').val(),
+      }).done(function() {
+        alert("Заявку прийнято");
+        populateBidsTable();
+        $('#bidid').val('');
+        $('#explain').val('');
+      });
+    } else alert("Заявки з таким id не існує!");
+  });
 }
 
 function Cancel(event) {
   event.preventDefault();
-  var newData = {
-    'status': 'відхилено',
-    'explain': $('#explain').val()
-  }
-  // Use AJAX to post the object to our adduser service
-  $.ajax({
-    type: 'PUT',
-    data: newData,
-    url: '/bid/updatebid/' + $('#bidid').val(),
-  }).done();
-
-  alert("Заявку відхилено");
-  populateBidsTable();
-  $('#bidid').val('');
-  $('#explain').val('');
+  $.getJSON('/bid/bidlist', function(data) {
+    var id = false;
+    $.each(data, function() {
+      if (this._id == $('#bidid').val()) {
+        id = true;
+      }
+    });
+    if (id) {
+      var newData = {
+        'status': 'відхилено',
+        'explain': $('#explain').val()
+      }
+      // Use AJAX to post the object to our adduser service
+      $.ajax({
+        type: 'PUT',
+        data: newData,
+        url: '/bid/updatebid/' + $('#bidid').val(),
+      }).done(function() {
+        alert("Заявку відхилено");
+        populateBidsTable();
+        $('#bidid').val('');
+        $('#explain').val('');
+      });
+    } else alert("Заявки з таким id не існує!");
+  });
 }
 
 function Report(event) {
@@ -132,29 +153,36 @@ function Report(event) {
   var Content = "";
   // jQuery AJAX call for JSON
   $.getJSON('/bid/bidlist', function(data) {
-
+    var now = new Date();
+    var f = false;
     // For each item in our JSON, add a table row and cells to the content string
     $.each(data, function() {
-      Content += this._id + ' ';
-      Content += this.username + ' ';
-      Content += this.reason + ' ';
-      Content += this.service + ' ';
-      Content += this.car + ' ';
-      Content += this.date + ' ';
-      Content += this.time + ' ';
-      Content += this.status + '\n';
+      var d = parseInt(this.date[3] + this.date[4]) - 1;
+      if (d == now.getMonth()) {
+        Content += this._id + ' ';
+        Content += this.username + ' ';
+        Content += this.reason + ' ';
+        Content += this.service + ' ';
+        Content += this.car + ' ';
+        Content += this.date + ' ';
+        Content += this.time + ' ';
+        Content += this.status + '\n';
+      }
+      f = true;
     });
-    var contentlist = {
-      'data': Content
+    if (f) {
+      var contentlist = {
+        'data': Content
+      }
+      // Use AJAX to post the object to our adduser service
+      $.ajax({
+        type: 'POST',
+        data: contentlist,
+        url: '/bid/report', //+ $('#_223').val(),
+        dataType: 'JSON'
+      }).done();
+      alert("Звіт створено.");
     }
-    // Use AJAX to post the object to our adduser service
-    $.ajax({
-      type: 'POST',
-      data: contentlist,
-      url: '/bid/report', //+ $('#_223').val(),
-      dataType: 'JSON'
-    }).done();
-    alert("Звіт створено.");
   });
 }
 
@@ -166,12 +194,18 @@ function Check(event) {
   var price = "";
   var fullname = "";
   $.when($.getJSON('/bid/bidlist'), $.getJSON('/services/serviceslist'), $.getJSON('/users/userlist')).done(function(data1, data2, data3) {
+    var id = false;
     $.each(data1[0], function() {
       if (this._id == $('#bidid').val()) {
+        id = true;
         name = this.username;
         serv = this.service;
       }
     });
+    if (!id) {
+      alert("Заявки з таким id не існує!");
+      return;
+    }
     $.each(data2[0], function() {
       if (this.servicename == serv) {
         price = this.price;
@@ -181,7 +215,7 @@ function Check(event) {
       if (this.username == name) {
         fullname = this.fullname;
         if (this.reqcount >= 3)
-        price = parseInt(price) * 0.9;
+          price = parseInt(price) * 0.9;
       }
     });
     $.each(data1[0], function() {
@@ -202,14 +236,11 @@ function Check(event) {
     $.ajax({
       type: 'POST',
       data: contentlist,
-      url: '/bid/check', //+ $('#_223').val(),
+      url: '/bid/check',
       dataType: 'JSON'
     }).done();
     alert("Чек створено.");
     $('#bidid').val('');
-    //console.log(data1[0]); //result1 is an array of the response values from test1
-    //console.log(contentlist);
-    //console.log(price);
   });
 }
 
