@@ -31,58 +31,51 @@ html(lang='en')
       li.nav-item
        a.nav-link#services(href='') Послуги
       li.nav-item
-       a.nav-link.glyphicon.glyphicon-log-in#login(href='')  Увійти
+       a.nav-link#bids(href='') Заявки
+      li.nav-item
+       a.nav-link.glyphicon.glyphicon-user(href='')  #{user}
+      li.nav-item
+       a.nav-link.glyphicon.glyphicon-off#logout(href='')  Вийти
   // Page Header
-  header.masthead(style="background-image: url('img/7.jpg')")
+  header.masthead(style="background-image: url('img/5.jpg')")
    .overlay
    .container
     .row
      .col-lg-8.col-md-10.mx-auto
       .page-heading
-       h1 Реєстрація
-       span.subheading Є питання? Ми маємо відповіді.
+       h1 Auto Service
+       span.subheading This is what we do.
   // Main Content
   .container
    .row
     .col-lg-8.col-md-10.mx-auto
-     p     Заповніть поля.
-     form#contactForm(name='sentMessage', novalidate='')
-      .control-group
-       .form-group.floating-label-form-group.controls
-        label Логін
-        input#username.form-control(type='text', placeholder='Логін', required='', data-validation-required-message='Please enter your name.')
-        p.help-block.text-danger
-      .control-group
-       .form-group.floating-label-form-group.controls
-        label П.І.Б.
-        input#pib.form-control(type='text', placeholder='П.І.Б.', required='', data-validation-required-message='Please enter your name.')
-        p.help-block.text-danger
-      .control-group
-       .form-group.floating-label-form-group.controls
-        label Електронна почта
-        input#email.form-control(type='email', placeholder='Електронна почта', required='', data-validation-required-message='Please enter your email address.')
-        p.help-block.text-danger
-      .control-group
-       .form-group.floating-label-form-group.controls
-        label Номер телефону
-        input#phone.form-control(type='tel', placeholder='Номер телефону', required='', data-validation-required-message='Please enter your phone number.')
-        p.help-block.text-danger
-      .control-group
-       .form-group.floating-label-form-group.controls
-        label Пароль
-        input#pass.form-control(type='tel', placeholder='Пароль', required='', data-validation-required-message='Please enter your phone number.')
-        p.help-block.text-danger
-      .control-group
-       .form-group.floating-label-form-group.controls
-        label Адреса проживання
-        textarea#address.form-control(rows='5', placeholder='Адреса проживання', required='', data-validation-required-message='Please enter a message.')
-        p.help-block.text-danger
-      br
-      #success
-      .form-group
-       button#sendMessageButton.btn.btn-primary.btn-default(type='submit')
-        span.glyphicon.glyphicon-send
-        |  Відправити
+     p.center 	    Ласкаво просимо на наш веб сайт! 
+  .py-5
+   .container
+    .row
+     .col-md-12.p-3
+      table.table.table-hover.table-striped.table-bordered#servicetable
+       thead.thead-inverse
+        tr
+         th(scope='col') Назва послуги
+         th(scope='col') Опис
+         th(scope='col') Час виконання
+         th(scope='col') Ціна
+       tbody
+        tr
+         th(scope='row') 1
+         td example
+         td one
+         td one
+        tr
+         th(scope='row') 2
+         td example
+         td two
+        tr.bg-info
+         th(scope='row') 3
+         td example
+         td three
+         td one
   hr
   // Footer
   footer
@@ -105,13 +98,10 @@ html(lang='en')
          span.fa-stack.fa-lg
           i.fa.fa-circle.fa-stack-2x
           i.fa.fa-github.fa-stack-1x.fa-inverse
-      p.copyright.text-muted Alex&ZEXTeam© Our Website 2018
+      p.copyright.text-muted Alex&ZEXTeam © Our Website 2018
   // Bootstrap core JavaScript
   script(src='vendor/jquery/jquery.min.js')
   script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
-  // Contact Form JavaScript
-  script(src='js/jqBootstrapValidation.js')
-  script(src='js/contact_me.js')
   // Custom scripts for this template
   script(src='js/clean-blog.min.js')
-  script(src='/javascripts/forregistration.js')
+  script(src='/javascripts/forservices.js')

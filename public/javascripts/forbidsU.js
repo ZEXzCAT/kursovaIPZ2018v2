@@ -1,19 +1,19 @@
 $(document).ready(function() {
 
   // Populate the user table on initial page load
-  populateServiceTable();
+  populateBidTable();
 
   // Home
-  $('#_59').on('click', goHome);
+  $('#home').on('click', goHome);
 
   // Services
-  $('#_60').on('click', goServices);
+  $('#services').on('click', goServices);
 
   // Bids
-  $('#_61').on('click', goBids);
+  $('#bids').on('click', goBids);
 
   // log out
-  $('#_62_1').on('click', goLogout);
+  $('#logout').on('click', goLogout);
 
   // bidform
   $('#_64').on('click', goBidform);
@@ -21,7 +21,7 @@ $(document).ready(function() {
 });
 
 // Fill table with data
-function populateServiceTable() {
+function populateBidTable() {
 
   // Empty content string
   var tableContent = '';
@@ -43,7 +43,7 @@ function populateServiceTable() {
     });
 
     // Inject the whole content string into our existing HTML table
-    $('#_65 tbody').html(tableContent);
+    $('#bidtable tbody').html(tableContent);
   });
 };
 

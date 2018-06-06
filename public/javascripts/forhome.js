@@ -6,16 +6,16 @@ $(document).ready(function() {
   $('#services').on('click', goServices);
 
   // Bids
-  $('#_8_1').on('click', goBids);
+  $('#bids').on('click', goBids);
 
   // login
-  $('#_9').on('click', goLogin);
+  $('#login').on('click', goLogin);
 
   // Registration
-  $('#_10').on('click', goRegistration);
+  $('#registration').on('click', goRegistration);
 
   // log out
-  $('#_10_1').on('click', goLogout);
+  $('#logout').on('click', goLogout);
 
 });
 

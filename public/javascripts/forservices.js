@@ -10,16 +10,16 @@ $(document).ready(function() {
   $('#services').on('click', goServices);
 
   // Bids
-  $('#_22_1').on('click', goBids);
+  $('#bids').on('click', goBids);
 
   // login
-  $('#_23').on('click', goLogin);
+  $('#login').on('click', goLogin);
 
   // Registration
-  $('#_24').on('click', goRegistration);
+  $('#registration').on('click', goRegistration);
 
   // log out
-  $('#_24_1').on('click', goLogout);
+  $('#logout').on('click', goLogout);
 
 });
 

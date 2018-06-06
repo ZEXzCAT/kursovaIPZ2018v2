@@ -1,48 +1,97 @@
-html
-  head
-    meta(charset='UTF-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/fonts-v3.css')
-    link(rel='stylesheet', href='/stylesheets/base-v4.css')
-    link(rel='stylesheet', href='/stylesheets/properties-2ccb5153-0dea-3ed1-d660-9ddc66ac02f8.css')
-  body
-    #_252
-      #_253.nm-label
-        h1#_254
-          | AutoService
-          br
-      i#_255
-        | 
-      nav#_256.navbar.navbar-default(role='navigation')
-        .container-fluid
-          ul.nav.navbar-nav
-            li
-              a#_257.navbar-brand(href='#') Brand
-            li
-              a#_258(href='#') Home
-      form#_261(role='form')
-        #_262
-          #_263.nm-label
-            span#_264
-              | Login form
-              br
-          #_265
-            svg#_266
-              line#_267(x1='0', x2='438', y1='', y2='0')
-        #_268.nm-label
-          span#_269
-            | Email
-            br
-        #_270.nm-label
-          span#_271
-            | Password
-            br
-        input#_272.form-control(type='text', placeholder='Email')
-        input#_273.form-control(type='text', placeholder='Password')
-        br
-        button#_276.btn.btn-default
-          | Sign in
-    // script type="text/javascript" src="../common-files/js/require.min.js" data-main="../scripts/startup"
-    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
-    script(src='/javascripts/forlogin.js')
+doctype html
+html(lang='en')
+ head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description', content='')
+  meta(name='author', content='')
+  title This is how we do it! AutoService
+  // Bootstrap core CSS
+  link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+  link(href='css/my.css', rel='stylesheet')
+  // Custom fonts for this template
+  link(href='vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+  link(href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic', rel='stylesheet', type='text/css')
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+  // Custom styles for this template
+  link(href='css/clean-blog.min.css', rel='stylesheet')
+ body
+  // Navigation
+  nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+   .container
+    a.navbar-brand(href='index.html')
+    button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+     | Меню
+     i.fa.fa-bars
+    #navbarResponsive.collapse.navbar-collapse
+     ul.navbar-nav.ml-auto
+      li.nav-item
+       a.nav-link#home(href='') Головна
+      li.nav-item
+       a.nav-link#services(href='') Послуги
+  // Page Header
+  header.masthead(style="background-image: url('img/contact-bg.jpg')")
+   .overlay
+   .container
+    .row
+     .col-lg-8.col-md-10.mx-auto
+      .page-heading
+       h1 Вхід
+       span.subheading Є питання? Ми маємо відповіді.
+  // Main Content
+  .container
+   .row
+    .col-lg-8.col-md-10.mx-auto
+     p     Введіть ваші данні.
+     form#contactForm(name='sentMessage', novalidate='')
+      .control-group
+       .form-group.floating-label-form-group.controls
+        label Логін
+        input#username.form-control(type='text', placeholder='Логін', required='', data-validation-required-message='Please enter your username.')
+        p.help-block.text-danger
+       .form-group.floating-label-form-group.controls
+        label Пароль
+        input#pass.form-control(type='password', placeholder='Пароль', required='', data-validation-required-message='Please enter your password.')
+        p.help-block.text-danger
+      br
+      #success
+      .form-group
+       button#sendMessageButton.btn.btn-primary(type='submit')
+        span.glyphicon.glyphicon-ok
+        |  Увійти
+       button#registration.btn.btn-primary.btn-default(type='submit')
+        span.glyphicon.glyphicon-pencil
+        |  Створити новий аккаунт
+  hr
+  // Footer
+  footer
+   .container
+    .row
+     .col-lg-8.col-md-10.mx-auto
+      ul.list-inline.text-center
+       li.list-inline-item
+        a(href='#')
+         span.fa-stack.fa-lg
+          i.fa.fa-circle.fa-stack-2x
+          i.fa.fa-twitter.fa-stack-1x.fa-inverse
+       li.list-inline-item
+        a(href='#')
+         span.fa-stack.fa-lg
+          i.fa.fa-circle.fa-stack-2x
+          i.fa.fa-facebook.fa-stack-1x.fa-inverse
+       li.list-inline-item
+        a(href='#')
+         span.fa-stack.fa-lg
+          i.fa.fa-circle.fa-stack-2x
+          i.fa.fa-github.fa-stack-1x.fa-inverse
+      p.copyright.text-muted AlZexTeam© Our Website 2018
+  // Bootstrap core JavaScript
+  script(src='vendor/jquery/jquery.min.js')
+  script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+  // Contact Form JavaScript
+  script(src='js/jqBootstrapValidation.js')
+  script(src='js/contact_me.js')
+  // Custom scripts for this template
+  script(src='js/clean-blog.min.js')
+  script(src='/javascripts/forlogin.js')

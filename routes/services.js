@@ -11,18 +11,8 @@ router.get('/serviceslist', function(req, res) {
 
 /* GET page. */
 router.get('/', function(req, res) {
-  if (req.cookies.status == 'admin') {
-    res.render('servicesA', {
-      user: req.cookies.username
-    });
-  }
-  else if (req.cookies.status == 'user') {
-    res.render('servicesU', {
-      user: req.cookies.username
-    });
-  }
-  else if (req.cookies.status == 'worker') {
-    res.render('servicesW', {
+  if (req.cookies.status != '') {
+    res.render('servicesLGND', {
       user: req.cookies.username
     });
   } else {

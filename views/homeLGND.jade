@@ -20,7 +20,7 @@ html(lang='en')
   // Navigation
   nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
    .container
-    a.navbar-brand(href='index.html')
+    a.navbar-brand(href='')
     button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
      | Меню
      i.fa.fa-bars
@@ -31,11 +31,13 @@ html(lang='en')
       li.nav-item
        a.nav-link#services(href='') Послуги
       li.nav-item
-       a.nav-link.glyphicon.glyphicon-log-in#login(href='')  Увійти
+       a.nav-link#bids(href='') Заявки
       li.nav-item
-       a.nav-link.glyphicon.glyphicon-pencil#registration(href='')  Зареєструватися
+       a.nav-link.glyphicon.glyphicon-user(href='')  #{user}
+      li.nav-item
+       a.nav-link.glyphicon.glyphicon-off#logout(href='')  Вийти
   // Page Header
-  header.masthead(style="background-image: url('img/5.jpg')")
+  header.masthead(style="background-image: url('img/3.jpg')")
    .overlay
    .container
     .row
@@ -48,32 +50,10 @@ html(lang='en')
    .row
     .col-lg-8.col-md-10.mx-auto
      p.center 	    Ласкаво просимо на наш веб сайт! 
-  .py-5
-   .container
-    .row
-     .col-md-12.p-3
-      table.table.table-hover.table-striped.table-bordered#servicetable
-       thead.thead-inverse
-        tr
-         th(scope='col') Назва послуги
-         th(scope='col') Опис
-         th(scope='col') Час виконання
-         th(scope='col') Ціна
-       tbody
-        tr
-         th(scope='row') 1
-         td example
-         td one
-         td one
-        tr
-         th(scope='row') 2
-         td example
-         td two
-        tr.bg-info
-         th(scope='row') 3
-         td example
-         td three
-         td one
+     p
+      | Команда AlZexTeam пропонує для вашого перегляду курсовий проект "Авто Сервіс". Numquam at quae voluptatum in officia voluptas voluptatibus, minus!
+     p
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!
   hr
   // Footer
   footer
@@ -96,10 +76,10 @@ html(lang='en')
          span.fa-stack.fa-lg
           i.fa.fa-circle.fa-stack-2x
           i.fa.fa-github.fa-stack-1x.fa-inverse
-      p.copyright.text-muted Alex&ZEXTeam © Our Website 2018
+      p.copyright.text-muted AlZexTeam © Our Website 2018
   // Bootstrap core JavaScript
   script(src='vendor/jquery/jquery.min.js')
   script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
   // Custom scripts for this template
   script(src='js/clean-blog.min.js')
-  script(src='/javascripts/forservices.js')
+  script(src='/javascripts/forhome.js')

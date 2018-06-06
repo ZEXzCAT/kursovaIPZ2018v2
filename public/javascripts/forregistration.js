@@ -1,12 +1,15 @@
 $(document).ready(function() {
   // Home
-  $('#_234').on('click', goHome);
+  $('#home').on('click', goHome);
 
   // Services
-  $('#_235').on('click', goServices);
+  $('#services').on('click', goServices);
+
+  // login
+  $('#login').on('click', goLogin);
 
   // Registrate
-  $('#_239').on('click', goRegistrate);
+  $('#sendMessageButton').on('click', goRegistrate);
 
 });
 
@@ -20,21 +23,26 @@ function goServices(event) {
   window.location = "/services";
 }
 
+function goLogin(event) {
+  event.preventDefault();
+  window.location = "/login";
+}
+
 function goRegistrate(event) {
   event.preventDefault();
   var newUser = {
-    'username': $('#_240_1').val(),
-    'fullname': $('#_240').val(),
-    'email': $('#_241').val(),
-    'number': $('#_242').val(),
-    'password': $('#_243').val(),
-    'address': $('#_243_1').val(),
+    'username': $('#username').val(),
+    'fullname': $('#pib').val(),
+    'email': $('#email').val(),
+    'number': $('#phone').val(),
+    'password': $('#pass').val(),
+    'address': $('#address').val(),
     'status': 'user',
     'reqcount': 0
   }
   console.log(newUser);
   // Use AJAX to post the object to our adduser service
-  $.ajax({
+  /*$.ajax({
     type: 'POST',
     data: newUser,
     url: '/users/adduser',
@@ -44,5 +52,5 @@ function goRegistrate(event) {
     document.cookie = "username=" + $('#_240_1').val();
     document.cookie = "status=" + "user";
     window.location = "/";
-  });
+  });*/
 }

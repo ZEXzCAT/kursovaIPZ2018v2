@@ -1,10 +1,16 @@
 $(document).ready(function() {
 
   // Home
-  $('#_258').on('click', goHome);
+  $('#home').on('click', goHome);
+
+  // Services
+  $('#services').on('click', goServices);
+
+  // Registration
+  $('#registration').on('click', goRegistration);
 
   // login
-  $('#_276').on('click', Login);
+  $('#sendMessageButton').on('click', Login);
 
 });
 
@@ -13,28 +19,48 @@ function goHome(event) {
   window.location = "/";
 }
 
+function goServices(event) {
+  event.preventDefault();
+  window.location = "/services";
+}
+
+function goRegistration(event) {
+  event.preventDefault();
+  window.location = "/registration";
+}
+
 function Login(event) {
   event.preventDefault();
-  var username = $('#_272').val();
-  var password = $('#_273').val();
+  var username = $('#username').val();
+  var password = $('#pass').val();
+  var status = '';
   $.getJSON('/users/userlist', function(data) {
     // Stick our user data array into a userlist variable in the global object
     userListData = data;
+    var un = false;
+    var ps = false;
     // For each item in our JSON, add a table row and cells to the content string
     $.each(data, function() {
-      if ((this.username == username) && (this.password == password)) {
-        document.cookie = "username=" + this.username;
-        document.cookie = "status=" + this.status;
-        /*if (this.status == "user") {
-          window.location = "/";
+      if (this.username == username) {
+        un = true;
+        if (this.password == password) {
+          ps = true;
+          status = this.status;
         }
-        else if (this.status == "admin") {
-          window.location = "/bid";
-        }*/
-
-        window.location = "/";
-        console.log('ura');
       }
     });
+    if (un) {
+      if (ps) {
+        document.cookie = "username=" + username;
+        document.cookie = "status=" + status;
+        window.location = "/";
+      } else {
+        alert("Невірний пароль!");
+        $('#pass').val('');
+      }
+    } else {
+      alert("Невірне ім'я користувача!");
+      $('#pass').val('');
+    }
   });
 }

@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res) {
   if (req.cookies.status == 'admin') {
-    res.render('bidsA', {
+    res.render('bidsAreq', {
       user: req.cookies.username
     });
   } else if (req.cookies.status == 'user') {
@@ -13,6 +13,16 @@ router.get('/', function(req, res) {
     });
   } else if (req.cookies.status == 'worker') {
     res.render('bidsW', {
+      user: req.cookies.username
+    });
+  } else {
+    res.render('error');
+  }
+});
+
+router.get('/tools', function(req, res) {
+  if (req.cookies.status == 'admin') {
+    res.render('bidsAtools', {
       user: req.cookies.username
     });
   } else {
